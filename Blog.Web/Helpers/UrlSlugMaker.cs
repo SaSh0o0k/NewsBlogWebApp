@@ -1,17 +1,20 @@
-﻿public static class UrlSlugMaker
+﻿namespace Blog.Web.Helpers
 {
-    public static string GenerateSlug(string text)
+    public static class UrlSlugMaker
     {
-        string urlSlug = text.ToLowerInvariant();
-
-        char[] invalidChars = { '.', ',', ':', ';' };
-        foreach (char invalidChar in invalidChars)
+        public static string GenerateSlug(string text)
         {
-            urlSlug = urlSlug.Replace(invalidChar.ToString(), string.Empty);
+            string urlSlug = text.ToLowerInvariant();
+
+            char[] invalidChars = { '.', ',', ':', ';' };
+            foreach (char invalidChar in invalidChars)
+            {
+                urlSlug = urlSlug.Replace(invalidChar.ToString(), string.Empty);
+            }
+
+            urlSlug = urlSlug.Replace(" ", "_");
+
+            return urlSlug;
         }
-
-        urlSlug = urlSlug.Replace(" ", "_");
-
-        return urlSlug;
     }
 }
