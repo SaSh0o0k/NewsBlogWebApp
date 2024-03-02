@@ -24,6 +24,36 @@ namespace Blog.Web.Data
                 var roleManager = scope.ServiceProvider
                     .GetRequiredService<RoleManager<RoleEntity>>();
 
+                #region Додавання користувачів та ролей
+
+                if (!context.Roles.Any())
+                {
+                    foreach (var role in Roles.All)
+                    {
+                        var result = roleManager.CreateAsync(new RoleEntity
+                        {
+                            Name = role
+                        }).Result;
+                    }
+                }
+
+                if (!context.Users.Any())
+                {
+                    var user = new UserEntity
+                    {
+                        FirstName = "Павло",
+                        LastName = "Марко",
+                        Email = "admin@gmail.com",
+                        UserName = "admin@gmail.com"
+                    };
+                    var result = userManager.CreateAsync(user, "123456").Result;
+                    if (result.Succeeded)
+                    {
+                        result = userManager.AddToRoleAsync(user, Roles.Admin).Result;
+                    }
+                }
+
+                #endregion
 
                 #region Додавання користувачів та ролей
 
