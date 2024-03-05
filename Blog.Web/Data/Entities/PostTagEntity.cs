@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Blog.Web.Data.Entities
 {
     [Table("tblPostTags")]
-    public class PostTagEntity
+    public class PostTagEntity : BaseEntity<int>
     {
         [ForeignKey("Post")]
         public int PostId { get; set; }

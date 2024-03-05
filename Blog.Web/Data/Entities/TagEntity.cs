@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Blog.Web.Data.Entities
 {
     [Table("tblTags")]
-    public class TagEntity
+    public class TagEntity : BaseEntity<int>
     {
         [Key]
         public int Id { get; set; }

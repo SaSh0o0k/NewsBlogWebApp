@@ -26,6 +26,9 @@ namespace Blog.Web.Data
                 ur.HasKey(ur => new { ur.PostId, ur.TagId });
             });
 
+            builder.Entity<CategoryEntity>().HasIndex(u => u.Name).IsUnique();
+            builder.Entity<TagEntity>().HasIndex(u => u.Name).IsUnique();
+
             builder.Entity<UserRoleEntity>(ur =>
             {
                 ur.HasKey(ur => new { ur.UserId, ur.RoleId });

@@ -1,6 +1,7 @@
 ﻿using Blog.Web.Constants;
 using Blog.Web.Data.Entities;
 using Blog.Web.Data.Entities.Identity;
+using Blog.Web.Helpers;
 using Bogus;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,7 @@ namespace Blog.Web.Data
                 var service = scope.ServiceProvider;
                 //Отримую посилання на наш контекст
                 var context = service.GetRequiredService<AppEFContext>();
+
                 context.Database.Migrate();
 
                 var userManager = scope.ServiceProvider

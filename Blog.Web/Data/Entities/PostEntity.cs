@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 namespace Blog.Web.Data.Entities
 {
     [Table("tblPosts")]
-    public class PostEntity
+    public class PostEntity : BaseEntity<int>
     {
         [Key]
         public int Id { get; set; }
 
-        [Required, StringLength(50)]
+        [Required, StringLength(255)]
         public string Title { get; set; }
 
         [StringLength(5000)]
@@ -21,7 +21,7 @@ namespace Blog.Web.Data.Entities
         [Required, StringLength(1000)]
         public string Meta { get; set; }
 
-        [Required, StringLength(200)]
+        [Required, StringLength(255)]
         public string UrlSlug { get; set; }
 
         public virtual bool Published { get; set; }
