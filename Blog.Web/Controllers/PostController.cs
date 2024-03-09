@@ -8,14 +8,21 @@ using Blog.Web.Data;
 using Blog.Web.Models.Category;
 using Blog.Web.Models.Post;
 using Blog.Web.Models.Tag;
+<<<<<<< HEAD
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+=======
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
 
 namespace Blog.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+<<<<<<< HEAD
     //[Authorize(Roles = Roles.Admin)]
+=======
+    [Authorize(Roles = Roles.Admin)]
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
     public class PostController : ControllerBase
     {
         private readonly AppEFContext _appEFContext;
@@ -145,6 +152,38 @@ namespace Blog.Web.Controllers
             return Ok();
         }
 
+<<<<<<< HEAD
+=======
+        //[HttpGet("urlSlug/{urlSlug}")]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> GetByUrlSlug(string urlSlug)
+        //{
+        //    var item = await _appEFContext.Posts
+        //        .Where(c => !c.IsDeleted)
+        //        .SingleOrDefaultAsync(x => x.UrlSlug == urlSlug);
+        //    if (item == null)
+        //        return NotFound();
+
+        //    var post = _mapper.Map<PostItemViewModel>(item);
+
+
+        //    var category = _appEFContext.Categories.Where(x => x.Id == item.CategoryId).FirstOrDefault();
+        //    if (category != null)
+        //        post.Category = _mapper.Map<CategoryItemViewModel>(category);
+
+        //    post.Tags = new List<TagItemViewModel>();
+        //    var postTags = _appEFContext.PostTags.Where(x => x.PostId == post.Id).ToList();
+        //    foreach (var postTag in postTags)
+        //    {
+        //        var tag = _appEFContext.Tags.Where(x => x.Id == postTag.TagId).FirstOrDefault();
+        //        if (tag != null)
+        //            post.Tags.Add(_mapper.Map<TagItemViewModel>(tag));
+        //    }
+
+        //    return Ok(post);
+        //}
+
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
         [HttpGet("{id}")]
         [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
@@ -174,6 +213,7 @@ namespace Blog.Web.Controllers
             return Ok(post);
         }
 
+<<<<<<< HEAD
         [HttpGet("{urlSlug}")]
         public async Task<IActionResult> GetByUrlSlug(string urlSlug)
         {
@@ -225,5 +265,87 @@ namespace Blog.Web.Controllers
                 PagesCount = pagesCount
             });
         }
+=======
+        //[HttpGet("category/{slugUrl}")]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> GetByCategory(string slugUrl)
+        //{
+        //    var category = await _appEFContext.Categories
+        //        .Where(c => !c.IsDeleted)
+        //        .Where(c => c.UrlSlug == slugUrl)
+        //        .SingleOrDefaultAsync();
+        //    if (category == null)
+        //        return NotFound();
+
+        //    var list = await _appEFContext.Posts
+        //        .Where(c => !c.IsDeleted)
+        //        .Where(c => c.CategoryId == category.Id)
+        //        .ToListAsync();
+
+        //    var mapedList = new List<PostItemViewModel>();
+        //    foreach (var post in list)
+        //        mapedList.Add(_mapper.Map<PostItemViewModel>(post));
+
+        //    for (int i = 0; i < list.Count; i++)
+        //    {
+        //        mapedList[i].Category = _mapper.Map<CategoryItemViewModel>(category);
+        //        mapedList[i].Tags = new List<TagItemViewModel>();
+        //        var postTags = _appEFContext.PostTags.Where(x => x.PostId == mapedList[i].Id).ToList();
+        //        foreach (var postTag in postTags)
+        //        {
+        //            var tag = _appEFContext.Tags.Where(x => x.Id == postTag.TagId).FirstOrDefault();
+        //            if (tag != null)
+        //                mapedList[i].Tags.Add(_mapper.Map<TagItemViewModel>(tag));
+        //        }
+        //    }
+        //    return Ok(mapedList);
+        //}
+
+        //[HttpGet("tag/{slug}")]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> GetByTag(string slug)
+        //{
+        //    var tagFind = await _appEFContext.Tags
+        //        .Where(c => !c.IsDeleted)
+        //        .Where(c => c.UrlSlug == slug)
+        //        .SingleOrDefaultAsync();
+        //    if (tagFind == null)
+        //        return NotFound();
+
+        //    var list = await _appEFContext.PostTags
+        //        .Where(c => c.TagId == tagFind.Id)
+        //        .ToListAsync();
+
+        //    var posts = new List<PostEntity>();
+
+        //    foreach (var item in list)
+        //    {
+        //        var post = _appEFContext.Posts.Where(x => x.Id == item.PostId).Where(c => !c.IsDeleted).FirstOrDefault();
+        //        if (post != null)
+        //            posts.Add(post);
+        //    }
+
+        //    var mapedList = new List<PostItemViewModel>();
+        //    foreach (var post in posts)
+        //        mapedList.Add(_mapper.Map<PostItemViewModel>(post));
+
+        //    for (int i = 0; i < posts.Count; i++)
+        //    {
+        //        var category = _appEFContext.Categories.Where(x => x.Id == posts[i].CategoryId).FirstOrDefault();
+        //        if (category != null)
+        //            mapedList[i].Category = _mapper.Map<CategoryItemViewModel>(category);
+
+        //        mapedList[i].Tags = new List<TagItemViewModel>();
+        //        var postTags = _appEFContext.PostTags.Where(x => x.PostId == mapedList[i].Id).ToList();
+        //        foreach (var postTag in postTags)
+        //        {
+        //            var tag = _appEFContext.Tags.Where(x => x.Id == postTag.TagId).FirstOrDefault();
+        //            if (tag != null)
+        //                mapedList[i].Tags.Add(_mapper.Map<TagItemViewModel>(tag));
+        //        }
+        //    }
+        //    return Ok(mapedList);
+        //}
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
     }
 }

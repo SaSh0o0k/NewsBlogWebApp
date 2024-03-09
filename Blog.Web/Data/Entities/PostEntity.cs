@@ -30,7 +30,11 @@ namespace Blog.Web.Data.Entities
 
         public virtual DateTime? Modified { get; set; }
 
+<<<<<<< HEAD
         [ForeignKey("tblCategories")]
+=======
+        [ForeignKey("Category")]
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
         public int CategoryId { get; set; }
 
         public virtual CategoryEntity Category { get; set; }

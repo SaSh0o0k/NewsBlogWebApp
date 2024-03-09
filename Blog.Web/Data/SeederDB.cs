@@ -15,6 +15,10 @@ namespace Blog.Web.Data
             using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var service = scope.ServiceProvider;
+<<<<<<< HEAD
+=======
+                //Отримую посилання на наш контекст
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
                 var context = service.GetRequiredService<AppEFContext>();
 
                 context.Database.Migrate();
@@ -132,6 +136,7 @@ namespace Blog.Web.Data
                 #endregion
 
                 #region Звязуємо пости і теги
+<<<<<<< HEAD
                 //if (!context.PostTags.Any())
                 //{
                 //    List<int> postsId = context.Posts.Select(c => c.Id).ToList();
@@ -153,6 +158,29 @@ namespace Blog.Web.Data
                 //    context.PostTags.AddRange(fakePostTagData);
                 //    context.SaveChanges();
                 //}
+=======
+                if (!context.PostTags.Any())
+                {
+                    List<int> postsId = context.Posts.Select(c => c.Id).ToList();
+                    List<int> tagsId = context.Tags.Select(c => c.Id).ToList();
+
+                    var fakePostTag = new Faker<PostTagEntity>()
+                        .RuleFor(ptm => ptm.PostId, f => f.PickRandom(postsId))
+                        .RuleFor(ptm => ptm.TagId, f => f.PickRandom(tagsId));
+
+                    List<PostTagEntity> fakePostTagData = fakePostTag.Generate(500);
+
+                    fakePostTagData = fakePostTagData
+                        .GroupBy(ptm => new { ptm.PostId, ptm.TagId })
+                        .Select(group => group.First())
+                        .GroupBy(ptm => ptm.PostId)
+                        .SelectMany(group => group.Take(5))
+                        .ToList();
+
+                    context.PostTags.AddRange(fakePostTagData);
+                    context.SaveChanges();
+                }
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
                 #endregion
             }
         }

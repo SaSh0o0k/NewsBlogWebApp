@@ -11,7 +11,11 @@ namespace Blog.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+<<<<<<< HEAD
     //[Authorize(Roles = Roles.Admin)]
+=======
+    [Authorize(Roles = Roles.Admin)]
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
     public class CategoryController : ControllerBase
     {
         private readonly AppEFContext _appEFContext;
@@ -89,5 +93,22 @@ namespace Blog.Web.Controllers
             }
             return Ok(_mapper.Map<CategoryItemViewModel>(category));
         }
+<<<<<<< HEAD
+=======
+
+        //[HttpGet("urlSlug/{urlSlug}")]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> GetByUrlSlug(string urlSlug)
+        //{
+        //    var category = await _appEFContext.Categories
+        //        .Where(c => !c.IsDeleted)
+        //        .SingleOrDefaultAsync(x => x.UrlSlug == urlSlug);
+        //    if (category == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(_mapper.Map<CategoryItemViewModel>(category));
+        //}
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
     }
 }

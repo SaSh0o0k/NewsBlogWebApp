@@ -12,7 +12,11 @@ namespace BlogWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+<<<<<<< HEAD
     //[Authorize(Roles = Roles.Admin)]
+=======
+    [Authorize(Roles = Roles.Admin)]
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
     public class TagController : ControllerBase
     {
         private readonly AppEFContext _appEFContext;
@@ -90,5 +94,22 @@ namespace BlogWebApi.Controllers
             }
             return Ok(_mapper.Map<TagItemViewModel>(tag));
         }
+<<<<<<< HEAD
+=======
+
+        //[HttpGet("urlSlug/{urlSlug}")]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> GetByUrlSlug(string urlSlug)
+        //{
+        //    var tag = await _appEFContext.Tags
+        //        .Where(c => !c.IsDeleted)
+        //        .SingleOrDefaultAsync(x => x.UrlSlug == urlSlug);
+        //    if (tag == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(_mapper.Map<TagItemViewModel>(tag));
+        //}
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
     }
 }

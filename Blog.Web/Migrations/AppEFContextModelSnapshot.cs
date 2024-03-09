@@ -244,14 +244,20 @@ namespace Blog.Web.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
+<<<<<<< HEAD
                         .HasMaxLength(5000)
                         .HasColumnType("character varying(5000)");
+=======
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
+<<<<<<< HEAD
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)");
 
@@ -259,6 +265,15 @@ namespace Blog.Web.Migrations
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)");
+=======
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("UrlSlug")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+>>>>>>> f2cc3b9844136ac9472b369d02627d56b768b255
 
                     b.HasKey("Id");
 
